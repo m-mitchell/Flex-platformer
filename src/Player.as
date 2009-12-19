@@ -7,6 +7,10 @@
   [Embed(source="../media/images/spaceman.png")] 
   protected var PlayerImage:Class;
   
+  [Embed(source="../media/sound/jump.mp3")] 
+  protected var SndJump:Class;
+
+  
   protected static const PLAYER_START_X:int = 0;
   protected static const PLAYER_START_Y:int = 0;
   protected static const PLAYER_RUN_SPEED:int = 80;
@@ -46,7 +50,8 @@ public function Player()
    }
    if(FlxG.keys.justPressed("X") && !velocity.y)
    {
-    velocity.y = -JUMP_ACCELERATION;
+	 FlxG.play(SndJump);
+     velocity.y = -JUMP_ACCELERATION;
    }
    
    if(velocity.y != 0)
