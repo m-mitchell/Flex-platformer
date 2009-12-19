@@ -7,7 +7,7 @@
  {
   public function MyGame():void
   {
-   super(626, 505, MenuState, 1);
+   super(550, 400, MenuState, 1);
    help("Jump", "Shoot", "Nothing");
    useDefaultHotKeys = true;
   }

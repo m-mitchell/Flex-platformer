@@ -6,7 +6,7 @@
  
  public class GameState extends FlxState
  {
-  [Embed(source="../media/untitle.png")]
+  [Embed(source="../media/backgrounds/test.jpg")]
   protected var TitleImage:Class;
   
   [Embed(source="../media/tiles.png")] 
@@ -18,7 +18,10 @@
   
   public function GameState()
   {
-   this.add(new FlxSprite(0,0,TitleImage));
+	  var background:FlxSprite = new FlxSprite(0, 0, TitleImage)
+	  background.scrollFactor.x = background.scrollFactor.y = 0;
+
+	  this.add(background);
 //   levelBlocks.add(this.add(new FlxBlock(0,0,8,8)));
    
     player = new Player();
