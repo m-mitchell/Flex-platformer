@@ -22,11 +22,12 @@
 	 background.scrollFactor.x = background.scrollFactor.y = 0;
 	 this.add(background);
 
-	 var testBlock:FlxBlock = new FlxBlock(0, 16, 8, 8);
-	 testBlock.loadGraphic(TechTilesImage);
-	 this.add(testBlock); 
-	 levelBlocks[0]=testBlock;
-	 
+	 for (var i:Number = 0; i <= 10; i++) {
+		 var testBlock:FlxBlock = new FlxBlock(0+32*i, 16+32*i, 1, 1);
+	     testBlock.loadGraphic(TechTilesImage);
+	     this.add(testBlock); 
+	     levelBlocks[i]=testBlock;
+	 }
    
      player = new Player();
      this.add(player);
