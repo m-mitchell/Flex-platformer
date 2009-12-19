@@ -14,6 +14,7 @@
   
   [Embed(source="../media/music/main.mp3")] 
   protected var BgMain:Class;
+  protected var backgroundMusic:FlxSound = new FlxSound();
   
   protected var levelBlocks:Array = new Array();
   protected var player:Player = null;
@@ -24,7 +25,9 @@
 	 var background:FlxSprite = new FlxSprite(0, 0, TitleImage)
 	 background.scrollFactor.x = background.scrollFactor.y = 0;
 	 this.add(background);
-	 FlxG.play(BgMain);
+
+	 backgroundMusic.loadEmbedded(BgMain, true);
+	 backgroundMusic.play();
 
 	 for (var i:Number = 0; i <= 10; i++) {
 		 var testBlock:FlxBlock = new FlxBlock(0+32*i, 32*(i+1), 32, 32);
