@@ -48,7 +48,7 @@ public function Player()
     facing = RIGHT;
     acceleration.x = drag.x;
    }
-   if(FlxG.keys.justPressed("X") && !velocity.y)
+   if(FlxG.keys.UP && !velocity.y)
    {
 	 FlxG.play(SndJump);
      velocity.y = -JUMP_ACCELERATION;
