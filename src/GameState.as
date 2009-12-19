@@ -18,17 +18,21 @@
   
   public function GameState()
   {
-	  var background:FlxSprite = new FlxSprite(0, 0, TitleImage)
-	  background.scrollFactor.x = background.scrollFactor.y = 0;
+	 var background:FlxSprite = new FlxSprite(0, 0, TitleImage)
+	 background.scrollFactor.x = background.scrollFactor.y = 0;
+	 this.add(background);
 
-	  this.add(background);
-//   levelBlocks.add(this.add(new FlxBlock(0,0,8,8)));
+	 var testBlock:FlxBlock = new FlxBlock(0, 16, 8, 8);
+	 testBlock.loadGraphic(TechTilesImage);
+	 this.add(testBlock); 
+	 levelBlocks[0]=testBlock;
+	 
    
-    player = new Player();
-    this.add(player);
-    FlxG.follow(player,2.5);
-    FlxG.followAdjust(0.5,0.0);
-    FlxG.followBounds(0,0,640,640);
+     player = new Player();
+     this.add(player);
+     FlxG.follow(player,2.5);
+     FlxG.followAdjust(0.5,0.0);
+     FlxG.followBounds(0,0,640,640);
 
   }
   

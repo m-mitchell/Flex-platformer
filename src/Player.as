@@ -7,8 +7,8 @@
   [Embed(source="../media/spaceman.png")] 
   protected var PlayerImage:Class;
   
-  protected static const PLAYER_START_X:int = 300;
-  protected static const PLAYER_START_Y:int = 300;
+  protected static const PLAYER_START_X:int = 0;
+  protected static const PLAYER_START_Y:int = 0;
   protected static const PLAYER_RUN_SPEED:int = 80;
   protected static const GRAVITY_ACCELERATION:Number = 420;
   protected static const JUMP_ACCELERATION:Number = 200;
