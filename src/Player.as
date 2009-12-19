@@ -15,7 +15,8 @@
   
 public function Player()
   {
-   super(PLAYER_START_X, PLAYER_START_Y, PlayerImage);
+   super(PLAYER_START_X, PLAYER_START_Y);
+   loadGraphic(PlayerImage, true, true, 32, 32);
    
    drag.x = PLAYER_RUN_SPEED * 8;
    acceleration.y = GRAVITY_ACCELERATION;
@@ -23,8 +24,8 @@ public function Player()
    maxVelocity.y = JUMP_ACCELERATION;
    
    addAnimation("idle", [0]);
-   addAnimation("run", [1, 2, 3, 0], 12);
-   addAnimation("jump", [4]);
+   addAnimation("run", [1, 2, 0], 12);
+   addAnimation("jump", [3]);
    addAnimation("idle_up", [5]);
    addAnimation("run_up", [6, 7, 8, 5], 12);
    addAnimation("jump_up", [9]);
