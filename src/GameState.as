@@ -23,7 +23,7 @@
 	 this.add(background);
 
 	 for (var i:Number = 0; i <= 10; i++) {
-		 var testBlock:FlxBlock = new FlxBlock(0+32*i, 16+32*i, 1, 1);
+		 var testBlock:FlxBlock = new FlxBlock(0+32*i, 32*(i+1), 32, 32);
 	     testBlock.loadGraphic(TechTilesImage);
 	     this.add(testBlock); 
 	     levelBlocks[i]=testBlock;
