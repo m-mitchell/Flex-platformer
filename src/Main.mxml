@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:Application
+  xmlns:mx = "http://www.adobe.com/2006/mxml"
+  layout = "absolute"
+  width = "626"
+  height = "505"
+  applicationComplete = "appComplete()">
+  
+  <mx:Script>
+  
+  <![CDATA[
+	 private function appComplete():void
+     {
+        this.addChild(new DisplayObjectUIComponent(new MyGame())); 
+     }
+	 
+	 
+  ]]>
+  
+  </mx:Script>
+  
+  </mx:Application>
+  
