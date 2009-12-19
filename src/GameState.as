@@ -1,7 +1,5 @@
 ﻿package
 {
- import org.flixel.FlxSprite;
- import org.flixel.FlxState;
  import org.flixel.*;
  
  public class GameState extends FlxState
@@ -10,14 +8,15 @@
   protected var TitleImage:Class;
   
   [Embed(source="../media/images/tiles.png")] 
-  protected var TechTilesImage:Class;
+  protected var TilesImage:Class;
   
   [Embed(source="../media/music/main.mp3")] 
   protected var BgMain:Class;
   protected var backgroundMusic:FlxSound = new FlxSound();
   
-  protected var levelBlocks:Array = new Array();
-  protected var player:Player = null;
+     [Embed(source = "../media/maps/0.txt", mimeType = "application/octet-stream")]
+	 protected var mapData:Class;
+	 protected var gameMap:FlxTilemap = new FlxTilemap(new mapData, TilesImage, 32);
 
   
   public function GameState()
@@ -28,13 +27,9 @@
 
 	 backgroundMusic.loadEmbedded(BgMain, true);
 	 backgroundMusic.play();
+	 
+	 this.add(gameMap);
 
-	 for (var i:Number = 0; i <= 10; i++) {
-		 var testBlock:FlxBlock = new FlxBlock(0+32*i, 32*(i+1), 32, 32);
-	     testBlock.loadGraphic(TechTilesImage);
-	     this.add(testBlock); 
-	     levelBlocks[i]=testBlock;
-	 }
    
      player = new Player();
      this.add(player);
@@ -47,7 +42,7 @@
   public override function update():void
   {
    super.update();
-   FlxG.collideArray(levelBlocks, player);
+   gameMap.collide(player);
   }
 
  }

@@ -11,11 +11,11 @@
   protected var SndJump:Class;
 
   
-  protected static const PLAYER_START_X:int = 0;
-  protected static const PLAYER_START_Y:int = 0;
+  protected static const PLAYER_START_X:int = 32;
+  protected static const PLAYER_START_Y:int = 32;
   protected static const PLAYER_RUN_SPEED:int = 80;
   protected static const GRAVITY_ACCELERATION:Number = 420;
-  protected static const JUMP_ACCELERATION:Number = 200;
+  protected static const JUMP_ACCELERATION:Number = 250;
   
 public function Player()
   {
