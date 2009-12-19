@@ -4,7 +4,7 @@
  
  public class Player extends FlxSprite
  {
-  [Embed(source="../media/spaceman.png")] 
+  [Embed(source="../media/images/spaceman.png")] 
   protected var PlayerImage:Class;
   
   protected static const PLAYER_START_X:int = 0;

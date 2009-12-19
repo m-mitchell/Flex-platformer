@@ -4,7 +4,7 @@
  
  public class MenuState extends FlxState
  {
-  [Embed(source="../media/title.jpg")]
+  [Embed(source="../media/images/title.jpg")]
   protected var TitleImage:Class;
   
   public function MenuState()

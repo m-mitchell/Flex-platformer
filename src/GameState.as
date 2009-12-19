@@ -6,10 +6,10 @@
  
  public class GameState extends FlxState
  {
-  [Embed(source="../media/backgrounds/test.jpg")]
+  [Embed(source="../media/images/backgrounds/test.jpg")]
   protected var TitleImage:Class;
   
-  [Embed(source="../media/tiles.png")] 
+  [Embed(source="../media/images/tiles.png")] 
   protected var TechTilesImage:Class;
   
   protected var levelBlocks:Array = new Array();
