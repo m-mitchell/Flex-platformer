@@ -7,7 +7,8 @@
  {
   public function MyGame():void
   {
-   super(550, 400, SplashStateA, 1);
+   super(550, 400, MenuState/* SplashStateA */, 1);
+   showLogo = false;
    help("Jump", "Shoot", "Nothing");
    useDefaultHotKeys = true;
   }
