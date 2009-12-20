@@ -26,7 +26,7 @@
   private const ANIM_CLOUD_HEIGHT:Number = sprCloud.offset.y;
   private const ANIM_DIV:Number = 8;
   private const ANIM_PRESSX_HEIGHT:Number = sprPressX.offset.y;
-  private const ANIM_SPEED:Number = 4;
+  private const ANIM_SPEED:Number = 2;
   private var toggle:Number = 0;
   private var newCloud_y:Number = 0;
 

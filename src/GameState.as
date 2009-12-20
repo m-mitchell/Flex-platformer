@@ -18,7 +18,9 @@
 	 protected var mapData:Class;
 	 protected var gameMap:FlxTilemap = new FlxTilemap(new mapData, TilesImage, 32);
 	 
-	 protected var player:FlxSprite;
+	 protected var player:Player;
+	 
+	 protected var enemies:Array = new Array();
 
   
   public function GameState()
@@ -32,21 +34,39 @@
 	 
 	 this.add(gameMap);
 
-
-	 
      player = new Player();
-	 
      this.add(player);
      FlxG.follow(player,2.5);
      FlxG.followAdjust(0.5,0.0);
-     FlxG.followBounds(0,0,640,640);
+     FlxG.followBounds(0, 0, 640, 640);
+	 
+	 var myMonster:Monster = new  Monster(32, 128);
+	 enemies[0] = myMonster;
+	 this.add(myMonster);
 
   }
   
   public override function update():void
   {
    super.update();
+   
+   		 if(FlxG.keys.justPressed("X"))
+         {
+	         player.attack();
+ 
+			 var dx:Number, dy:Number, distance:Number;
+			 var attackRange:Number = 20;
+             for each (var enemy:EnemyClass in enemies)
+            {
+             //distance = ((enemy.x * enemy.x) + (enemy.y * enemy.y));
+			 distance = Math.abs(enemy.x - player.x);
+             if (distance < attackRange) enemy.hurt(5);
+             }
+
+         }
+		 
    gameMap.collide(player);
+   gameMap.collide(enemies[0]);
   }
 
  }

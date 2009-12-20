@@ -57,13 +57,6 @@
              velocity.y = -JUMP_ACCELERATION;
          }
 		 
-		 if(FlxG.keys.justPressed("X"))
-         {
-	         FlxG.play(SndAttack);
-			 ATTACKING = 12;
-			 play("attack");
-         }
-		 
          if (ATTACKING >= 0) {
 			 ATTACKING--;
 	     }
@@ -87,6 +80,14 @@
 	 { 
 		 velocity.y = JUMP_ACCELERATION; 
 		 return true; 
+	 }
+	 
+	 public function attack():void
+	 {
+		 
+		FlxG.play(SndAttack);
+			 ATTACKING = 12;
+			 play("attack");
 	 }
  }
 }
