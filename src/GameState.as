@@ -40,13 +40,12 @@
      FlxG.followAdjust(0.5,0.0);
      FlxG.followBounds(0, 0, 640, 640);
 	 
-	 var myMonster:Monster = new  Monster(32, 128);
-	 enemies[0] = myMonster;
-	 this.add(myMonster);
+	 for (var i:Number = 0; i <= 10; i++){
+    	 var myMonster:Monster = new  Monster(32+32*i, 128);
+    	 enemies[i] = myMonster;
+	     this.add(myMonster);
+	 }
 	 
-	 myMonster = new  Monster(64, 128);
-	 enemies[1] = myMonster;
-	 this.add(myMonster);
 
   }
   
@@ -54,6 +53,7 @@
   {
    super.update();
    
+         // Check for collision between player's melee attack and enemy
    		 if(FlxG.keys.justPressed("X"))
          {
 	         player.attack();
@@ -70,9 +70,14 @@
 
          }
 		 
+
+
+   // Check for collision between tiles and player
    gameMap.collide(player);
-   gameMap.collide(enemies[0]);
-   gameMap.collide(enemies[1]);
+   
+   // Check for collisions between tiles and enemies
+   for each (enemy in enemies) gameMap.collide(enemy);
+   
   }
 
  }
