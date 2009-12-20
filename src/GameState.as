@@ -59,13 +59,15 @@
 	         player.attack();
  
 			 var dx:Number, dy:Number, distance:Number;
-			 var attackRange:Number = 20;
+			 var attackRange:Number = 32;
+			 var monsterInFront:Boolean = false;
              for each (var enemy:EnemyClass in enemies)
             {
 			 dx = (enemy.x - player.x);
 			 dy = (enemy.y - player.y);
-			 distance = Math.sqrt((dx*dx) + (dy*dy));
-             if (distance < attackRange) enemy.hurt(5);
+			 distance = Math.sqrt((dx * dx) + (dy * dy));
+			 monsterInFront = (player.facing == 0 && enemy.x <= player.x) || (player.facing == 1 && enemy.x >= player.x);
+             if (distance < attackRange && monsterInFront == true) enemy.hurt(5);
              }
 
          }
