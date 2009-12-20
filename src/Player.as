@@ -49,10 +49,9 @@ public function Player()
     facing = RIGHT;
     acceleration.x = drag.x;
    }
-   if(FlxG.keys.UP && !velocity.y && (Math.ceil(last.y/32) == Math.ceil(y/32)))
+   if(FlxG.keys.UP && !velocity.y)
    {
 	 FlxG.play(SndJump);
-	 FlashConnect.trace("jump -- y = "+String(y)+" lasty"+String(last.y));
      velocity.y = -JUMP_ACCELERATION;
    }
    
@@ -72,7 +71,7 @@ public function Player()
    super.update();
   }
 
-  public override function hitCeiling(Contact:FlxCore = null):Boolean { velocity.y = JUMP_ACCELERATION; FlashConnect.trace("hit ceiling -- y = "+String(Math.ceil(y/32))+" lasty"+String(Math.ceil(last.y/32))); return true; }
+  public override function hitCeiling(Contact:FlxCore = null):Boolean { velocity.y = JUMP_ACCELERATION; return true; }
  }
 }
 
