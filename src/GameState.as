@@ -21,6 +21,11 @@
 	 protected var player:Player;
 	 
 	 protected var enemies:Array = new Array();
+	 
+	 protected var HUD:FlxLayer = new FlxLayer();
+	 
+	 protected var LblHP:FlxText = new FlxText(0, 0, 50, "Health: ");
+	 protected var LblMP:FlxText = new FlxText(0, 20, 50, "Mana: ");
 
   
   public function GameState()
@@ -38,7 +43,7 @@
      this.add(player);
      FlxG.follow(player,2.5);
      FlxG.followAdjust(0.5,0.0);
-     FlxG.followBounds(32, 32, 576, 416);
+     FlxG.followBounds(32, 32, (gameMap.widthInTiles-1)*32, (gameMap.heightInTiles-1)*32);
 	 
 	 for (var i:Number = 0; i <= 10; i++){
     	 var myMonster:Monster = new  Monster(32+32*i, 128);
@@ -46,6 +51,11 @@
 	     this.add(myMonster);
 	 }
 	 
+	 HUD.scrollFactor.x = 0;
+	 HUD.scrollFactor.y = 0;
+	 HUD.add(LblMP, true); 
+	 HUD.add(LblHP, true); 
+	 this.add(HUD);
 
   }
   

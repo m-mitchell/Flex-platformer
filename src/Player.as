@@ -33,7 +33,7 @@
      {
          super(PLAYER_START_X, PLAYER_START_Y);
 		 
-		 health = 20;
+		 health = 100;
 		 
          loadGraphic(PlayerImage, true, true, 32, 32);
    
