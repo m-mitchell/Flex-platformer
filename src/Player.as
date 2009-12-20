@@ -1,6 +1,7 @@
 ﻿package
 {
  import org.flixel.*;
+ import org.flashdevelop.utils.FlashConnect;
  
  public class Player extends FlxSprite
  {
@@ -20,7 +21,7 @@
 public function Player()
   {
    super(PLAYER_START_X, PLAYER_START_Y);
-   loadGraphic(PlayerImage, true, true, 32, 32);
+   loadGraphic(PlayerImage, true, true, 32, 30);
    
    drag.x = PLAYER_RUN_SPEED * 8;
    acceleration.y = GRAVITY_ACCELERATION;
@@ -48,9 +49,10 @@ public function Player()
     facing = RIGHT;
     acceleration.x = drag.x;
    }
-   if(FlxG.keys.UP && !velocity.y)
+   if(FlxG.keys.UP && !velocity.y && (Math.ceil(last.y/32) == Math.ceil(y/32)))
    {
 	 FlxG.play(SndJump);
+	 FlashConnect.trace("jump -- y = "+String(y)+" lasty"+String(last.y));
      velocity.y = -JUMP_ACCELERATION;
    }
    
@@ -70,6 +72,7 @@ public function Player()
    super.update();
   }
 
+  public override function hitCeiling(Contact:FlxCore = null):Boolean { velocity.y = JUMP_ACCELERATION; FlashConnect.trace("hit ceiling -- y = "+String(Math.ceil(y/32))+" lasty"+String(Math.ceil(last.y/32))); return true; }
  }
 }
 

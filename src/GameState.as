@@ -17,6 +17,8 @@
      [Embed(source = "../media/maps/0.txt", mimeType = "application/octet-stream")]
 	 protected var mapData:Class;
 	 protected var gameMap:FlxTilemap = new FlxTilemap(new mapData, TilesImage, 32);
+	 
+	 protected var player:FlxSprite;
 
   
   public function GameState()
@@ -30,8 +32,10 @@
 	 
 	 this.add(gameMap);
 
-   
+
+	 
      player = new Player();
+	 
      this.add(player);
      FlxG.follow(player,2.5);
      FlxG.followAdjust(0.5,0.0);
