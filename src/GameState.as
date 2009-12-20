@@ -38,7 +38,7 @@
      this.add(player);
      FlxG.follow(player,2.5);
      FlxG.followAdjust(0.5,0.0);
-     FlxG.followBounds(0, 0, 640, 640);
+     FlxG.followBounds(32, 32, 576, 416);
 	 
 	 for (var i:Number = 0; i <= 10; i++){
     	 var myMonster:Monster = new  Monster(32+32*i, 128);
