@@ -9,6 +9,7 @@
   
          [Embed(source="../media/sound/jump.mp3")] 
          protected var SndJump:Class;
+		 protected var FlxSndJump:FlxSound = new FlxSound();
 		 
 		 [Embed(source="../media/sound/pew.mp3")] 
          protected var SndAttack:Class;
@@ -35,6 +36,8 @@
          addAnimation("run", [1, 2, 0], 12);
          addAnimation("jump", [3]);
          addAnimation("attack", [4, 5, 0], 12, false);
+		 
+		 FlxSndJump.loadEmbedded(SndJump, false);
      } 
 	
 	
@@ -53,7 +56,7 @@
          }
          if(FlxG.keys.UP && !velocity.y)
          {
-	         FlxG.play(SndJump);
+	         FlxSndJump.play();
              velocity.y = -JUMP_ACCELERATION;
          }
 		 
