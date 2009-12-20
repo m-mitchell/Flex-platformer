@@ -30,10 +30,11 @@
 
 	 public override function hurt(Damage:Number):void
      {
-		 super.hurt(Damage);
-		 if (health > 0) FlxG.play(SndHurt);
-		 else FlxG.play(SndDead);
+
+		 if ((health-Damage) > 0) FlxG.play(SndHurt);
+		 else if(!dead) FlxG.play(SndDead);
 		 
+		 super.hurt(Damage);
      }
  }
 }

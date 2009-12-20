@@ -43,6 +43,10 @@
 	 var myMonster:Monster = new  Monster(32, 128);
 	 enemies[0] = myMonster;
 	 this.add(myMonster);
+	 
+	 myMonster = new  Monster(64, 128);
+	 enemies[1] = myMonster;
+	 this.add(myMonster);
 
   }
   
@@ -68,6 +72,7 @@
 		 
    gameMap.collide(player);
    gameMap.collide(enemies[0]);
+   gameMap.collide(enemies[1]);
   }
 
  }
