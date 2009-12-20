@@ -13,7 +13,13 @@
 		 
 		 [Embed(source="../media/sound/pew.mp3")] 
          protected var SndAttack:Class;
-
+		 
+		 [Embed(source="../media/sound/ouch.mp3")] 
+         protected var SndHurt:Class;
+		 
+	     [Embed(source="../media/sound/dead.mp3")] 
+         protected var SndDead:Class;
+  
   
      protected static const PLAYER_START_X:int = 32;
      protected static const PLAYER_START_Y:int = 32;
@@ -21,10 +27,14 @@
      protected static const GRAVITY_ACCELERATION:Number = 420;
      protected static const JUMP_ACCELERATION:Number = 250;
 	 protected var ATTACKING:Number = 0;
+	 protected var INVINCIBLE:Number = 0;
   
      public function Player()
      {
          super(PLAYER_START_X, PLAYER_START_Y);
+		 
+		 health = 20;
+		 
          loadGraphic(PlayerImage, true, true, 32, 32);
    
          drag.x = PLAYER_RUN_SPEED * 8;
@@ -76,6 +86,10 @@
              play("run");
          }
 		 
+		 if (INVINCIBLE > 0) {
+			 INVINCIBLE--;
+		 }
+		 
          super.update();
      }
 
@@ -84,6 +98,17 @@
 		 velocity.y = JUMP_ACCELERATION; 
 		 return true; 
 	 }
+	 
+	 public override function hurt(Damage:Number):void
+     {
+         if(INVINCIBLE <= 0) {
+		     if ((health-Damage) > 0) FlxG.play(SndHurt);
+	    	 else if(!dead) FlxG.play(SndDead);
+		 
+		     super.hurt(Damage);
+		      INVINCIBLE = 100;
+		 }
+     }
 	 
 	 public function attack():void
 	 {

@@ -19,6 +19,13 @@
      {
          super.update();
      }
+	 
+	 public override function hitWall(Contact:FlxCore=null):Boolean
+     {
+          this.velocity.x = -this.velocity.x;
+          return true;
+     }
+
 
  }
 }

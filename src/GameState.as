@@ -80,6 +80,15 @@
    // Check for collisions between tiles and enemies
    for each (enemy in enemies) gameMap.collide(enemy);
    
+   //Check for collision between player and enemies
+   FlxG.overlapArray(enemies, player, playerEnemyCollide);
+
+   
+  }
+  
+  protected function playerEnemyCollide(enemy:EnemyClass, player:Player):void
+  {
+	player.hurt(5);
   }
 
  }
