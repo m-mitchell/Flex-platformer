@@ -58,8 +58,9 @@
 			 var attackRange:Number = 20;
              for each (var enemy:EnemyClass in enemies)
             {
-             //distance = ((enemy.x * enemy.x) + (enemy.y * enemy.y));
-			 distance = Math.abs(enemy.x - player.x);
+			 dx = (enemy.x - player.x);
+			 dy = (enemy.y - player.y);
+			 distance = Math.sqrt((dx*dx) + (dy*dy));
              if (distance < attackRange) enemy.hurt(5);
              }
 
