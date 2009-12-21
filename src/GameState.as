@@ -58,13 +58,14 @@
 
     HUD.scrollFactor.x = 0;
     HUD.scrollFactor.y = 0;
-    this.add(HUD);
 
     // player status bar
-    sprHpBar = new FlxSprite(FlxG.width-45, FlxG.height-9, imgHpBar)    
-    this.add(sprHpBar);
-    sprStatusBar = new FlxSprite(FlxG.width-90, FlxG.height-20, imgStatusBar);
-    this.add(sprStatusBar);
+    sprHpBar = new FlxSprite(FlxG.width-75, FlxG.height-39, imgHpBar)    
+    HUD.add(sprHpBar, true);
+    sprStatusBar = new FlxSprite(FlxG.width-122, FlxG.height-50, imgStatusBar);
+    HUD.add(sprStatusBar, true);
+	
+	this.add(HUD);
 	 
   }
   
