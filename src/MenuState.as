@@ -17,7 +17,7 @@
   protected var BgMain:Class;
   protected var backgroundMusic:FlxSound = new FlxSound();
  
-  // sprites TODO: cleanup magic variables, how do we get a sprites width? 
+  // sprites TODO: cleanup magic variables, how do we get a sprite's width? 
   protected var sprLogo:FlxSprite = new FlxSprite(FlxG.width/2 - 436/2, 70, imgLogo); 
   protected var sprCloud:FlxSprite = new FlxSprite(FlxG.width/2 - 416/2, 50, imgCloud);
   protected var sprPressX:FlxSprite = new FlxSprite(FlxG.width/2 - 302/2, 220, imgPressX);

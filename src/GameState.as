@@ -14,9 +14,18 @@
   protected var BgMain:Class;
   protected var backgroundMusic:FlxSound = new FlxSound();
   
-  [Embed(source = "../media/maps/0.txt", mimeType = "application/octet-stream")]
-  protected var mapData:Class;
-  protected var gameMap:FlxTilemap = new FlxTilemap(new mapData, TilesImage, 32);
+     [Embed(source = "../media/maps/0.txt", mimeType = "application/octet-stream")]
+	 protected var mapData:Class;
+	 protected var gameMap:FlxTilemap = new FlxTilemap(new mapData, TilesImage, 32);
+	 
+	 protected var player:Player;
+	 
+	 protected var enemies:Array = new Array();
+	 
+	 protected var HUD:FlxLayer = new FlxLayer();
+	 
+	 protected var LblHP:FlxText = new FlxText(0, 0, 50, "Health: ");
+	 protected var LblMP:FlxText = new FlxText(0, 20, 50, "Mana: ");
 
   [Embed(source="../media/images/bar_status.png")]
   protected var imgStatusBar:Class;
@@ -39,6 +48,12 @@
  
     backgroundMusic.loadEmbedded(BgMain, true);
     backgroundMusic.play();
+
+     player = new Player();
+     this.add(player);
+     FlxG.follow(player,2.5);
+     FlxG.followAdjust(0.5,0.0);
+     FlxG.followBounds(32, 32, (gameMap.widthInTiles-1)*32, (gameMap.heightInTiles-1)*32);
 	 
     this.add(gameMap);
 
@@ -53,6 +68,12 @@
       enemies[i] = myMonster;
       this.add(myMonster);
     }
+
+	 HUD.scrollFactor.x = 0;
+	 HUD.scrollFactor.y = 0;
+	 HUD.add(LblMP, true); 
+	 HUD.add(LblHP, true); 
+	 this.add(HUD);
 
     // player status bar
     sprHpBar = new FlxSprite(FlxG.width-45, FlxG.height-9, imgHpBar)    
